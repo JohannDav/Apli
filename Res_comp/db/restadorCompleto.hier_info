@@ -1,0 +1,11 @@
+|restadorCompleto
+a => d.IN0
+a => ps.IN0
+b => d.IN1
+b => ps.IN1
+pe => d.IN1
+pe => ps.IN1
+d <= d.DB_MAX_OUTPUT_PORT_TYPE
+ps <= ps.DB_MAX_OUTPUT_PORT_TYPE
+
+

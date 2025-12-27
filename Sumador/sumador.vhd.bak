@@ -1,0 +1,35 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity sumador is
+    Port (
+        A3, A2, A1, A0 : in  STD_LOGIC;
+        B3, B2, B1, B0 : in  STD_LOGIC;
+        S3, S2, S1, S0 : out STD_LOGIC;
+        CS             : out STD_LOGIC  -- Acarreo de salida
+    );
+end sumador;
+
+architecture Quirino of sumador is
+    -- Señales intermedias (acarreos entre cada bit)
+    signal C0, C1, C2, C3 : STD_LOGIC;
+begin
+    -- Bit 0
+    S0 <= A0 XOR B0;
+    C0 <= A0 AND B0;
+
+    -- Bit 1
+    S1 <= A1 XOR B1 XOR C0;
+    C1 <= (A1 AND B1) OR (A1 AND C0) OR (B1 AND C0);
+
+    -- Bit 2
+    S2 <= A2 XOR B2 XOR C1;
+    C2 <= (A2 AND B2) OR (A2 AND C1) OR (B2 AND C1);
+
+    -- Bit 3
+    S3 <= A3 XOR B3 XOR C2;
+    C3 <= (A3 AND B3) OR (A3 AND C2) OR (B3 AND C2);
+
+    -- Acarreo final
+    CS <= C3;
+end Quirino;

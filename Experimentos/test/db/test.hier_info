@@ -1,0 +1,13 @@
+|test
+B2 => ~NO_FANOUT~
+B1 => ~NO_FANOUT~
+B0 => ~NO_FANOUT~
+A2 => ~NO_FANOUT~
+A1 => ~NO_FANOUT~
+A0 => ~NO_FANOUT~
+Cs <= <VCC>
+S2 <= <GND>
+S1 <= <GND>
+S0 <= <GND>
+
+

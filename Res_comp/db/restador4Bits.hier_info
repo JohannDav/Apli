@@ -1,0 +1,61 @@
+|restador4Bits
+a[0] => semiRestador:INST_semiS.a
+a[1] => restadorCompleto:INST_restadorC.a
+a[2] => restadorCompleto:INST_restadorC2.a
+a[3] => restadorCompleto:INST_restadorC3.a
+b[0] => semiRestador:INST_semiS.b
+b[1] => restadorCompleto:INST_restadorC.b
+b[2] => restadorCompleto:INST_restadorC2.b
+b[3] => restadorCompleto:INST_restadorC3.b
+d[0] << semiRestador:INST_semiS.d
+d[1] << restadorCompleto:INST_restadorC.d
+d[2] << restadorCompleto:INST_restadorC2.d
+d[3] << restadorCompleto:INST_restadorC3.d
+d[4] << restadorCompleto:INST_restadorC3.ps
+mayor << mayor.DB_MAX_OUTPUT_PORT_TYPE
+igual << res_0.DB_MAX_OUTPUT_PORT_TYPE
+menor << restadorCompleto:INST_restadorC3.ps
+
+
+|restador4Bits|semiRestador:INST_semiS
+a => d.IN0
+a => ps.IN0
+b => d.IN1
+b => ps.IN1
+d <= d.DB_MAX_OUTPUT_PORT_TYPE
+ps <= ps.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|restador4Bits|restadorCompleto:INST_restadorC
+a => d.IN0
+a => ps.IN0
+b => d.IN1
+b => ps.IN1
+pe => d.IN1
+pe => ps.IN1
+d <= d.DB_MAX_OUTPUT_PORT_TYPE
+ps <= ps.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|restador4Bits|restadorCompleto:INST_restadorC2
+a => d.IN0
+a => ps.IN0
+b => d.IN1
+b => ps.IN1
+pe => d.IN1
+pe => ps.IN1
+d <= d.DB_MAX_OUTPUT_PORT_TYPE
+ps <= ps.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|restador4Bits|restadorCompleto:INST_restadorC3
+a => d.IN0
+a => ps.IN0
+b => d.IN1
+b => ps.IN1
+pe => d.IN1
+pe => ps.IN1
+d <= d.DB_MAX_OUTPUT_PORT_TYPE
+ps <= ps.DB_MAX_OUTPUT_PORT_TYPE
+
+

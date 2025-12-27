@@ -1,0 +1,79 @@
+|multiplexor
+entrada_a[0] => resultado_and[0].IN0
+entrada_a[0] => resultado_or[0].IN0
+entrada_a[0] => resultado_xor[0].IN0
+entrada_a[0] => semiSumador:INST_semisumador.bit_a
+entrada_a[0] => semiRestador:INST_semiRestador.bit_a
+entrada_a[0] => Mux1.IN10
+entrada_a[1] => resultado_and[1].IN0
+entrada_a[1] => resultado_or[1].IN0
+entrada_a[1] => resultado_xor[1].IN0
+entrada_a[1] => sumadorCompleto:INST_sumadorCompleto.bit_a
+entrada_a[1] => restadorCompleto:INST_restadorCompleto.bit_a
+entrada_a[1] => Mux0.IN10
+entrada_b[0] => resultado_and[0].IN1
+entrada_b[0] => resultado_or[0].IN1
+entrada_b[0] => resultado_xor[0].IN1
+entrada_b[0] => semiSumador:INST_semisumador.bit_b
+entrada_b[0] => semiRestador:INST_semiRestador.bit_b
+entrada_b[1] => resultado_and[1].IN1
+entrada_b[1] => resultado_or[1].IN1
+entrada_b[1] => resultado_xor[1].IN1
+entrada_b[1] => sumadorCompleto:INST_sumadorCompleto.bit_b
+entrada_b[1] => restadorCompleto:INST_restadorCompleto.bit_b
+selector[0] => Mux0.IN3
+selector[0] => Mux1.IN3
+selector[0] => Mux2.IN7
+selector[1] => Mux0.IN2
+selector[1] => Mux1.IN2
+selector[1] => Mux2.IN6
+selector[2] => Mux0.IN1
+selector[2] => Mux1.IN1
+selector[2] => Mux2.IN5
+resultado[0] << Mux2.DB_MAX_OUTPUT_PORT_TYPE
+resultado[1] << Mux1.DB_MAX_OUTPUT_PORT_TYPE
+resultado[2] << Mux0.DB_MAX_OUTPUT_PORT_TYPE
+resultado[3] << <GND>
+resultado[4] << <GND>
+
+
+|multiplexor|semiSumador:INST_semisumador
+bit_a => resultado.IN0
+bit_a => acarreo.IN0
+bit_b => resultado.IN1
+bit_b => acarreo.IN1
+resultado <= resultado.DB_MAX_OUTPUT_PORT_TYPE
+acarreo <= acarreo.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplexor|sumadorCompleto:INST_sumadorCompleto
+bit_a => suma_parcial.IN0
+bit_a => acarreo_salida.IN0
+bit_b => suma_parcial.IN1
+bit_b => acarreo_salida.IN1
+acarreo_entrada => resultado.IN1
+acarreo_entrada => acarreo_salida.IN1
+resultado <= resultado.DB_MAX_OUTPUT_PORT_TYPE
+acarreo_salida <= acarreo_salida.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplexor|semiRestador:INST_semiRestador
+bit_a => diferencia.IN0
+bit_a => prestamo.IN0
+bit_b => diferencia.IN1
+bit_b => prestamo.IN1
+diferencia <= diferencia.DB_MAX_OUTPUT_PORT_TYPE
+prestamo <= prestamo.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|multiplexor|restadorCompleto:INST_restadorCompleto
+bit_a => dif_parcial.IN0
+bit_a => prestamo_salida.IN0
+bit_b => dif_parcial.IN1
+bit_b => prestamo_salida.IN1
+prestamo_entrada => diferencia.IN1
+prestamo_entrada => prestamo_salida.IN1
+diferencia <= diferencia.DB_MAX_OUTPUT_PORT_TYPE
+prestamo_salida <= prestamo_salida.DB_MAX_OUTPUT_PORT_TYPE
+
+

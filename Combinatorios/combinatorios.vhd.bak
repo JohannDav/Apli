@@ -1,0 +1,14 @@
+library IEEE
+use IEEE.STD_LOGIC_1164.ALL;
+entity combinatorios is
+	Port (A : in std_logic;
+			B : in std_logic;
+			C : in std_logic;
+			D : in std_logic;
+			E : in std_logic;
+			Y : out std_logic );
+end combinatorios;
+architecture nobre of combinatorios is
+	Begin
+		Y <= ((Not B) AND (NOT D) AND (NOT C) AND (B)) OR ((NOT E) AND (NOT D) AND (C) AND (A)) OR ((E) AND (NOT D) AND (NOT C) AND (A)) OR ((NOT E) AND (NOT C) AND (B) AND (A)) OR ((D) AND (C) AND (NOT B) AND (A)) OR ( E AND C AND B AND A);
+end nombre;

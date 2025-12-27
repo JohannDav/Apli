@@ -1,0 +1,15 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity ejercicio_2 is
+	Port (A : in std_logic;
+			B : in std_logic;
+			C : in std_logic;
+			D : in std_logic;
+			Y : out std_logic);
+end coche;
+
+architecture dav of ejercicio_2 is
+begin
+Y <= (A AND C) OR (B AND D) OR (B AND C) OR (D AND C) OR (A AND B);
+end dav;

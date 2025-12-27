@@ -1,0 +1,11 @@
+Fitter Status : Successful - Mon Dec  8 19:50:02 2025
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : test
+Top-level Entity Name : test
+Family : MAX II
+Device : EPM240T100C5
+Timing Models : Final
+Total logic elements : 0 / 240 ( 0 % )
+Total pins : 10 / 80 ( 13 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )
