@@ -1,0 +1,38 @@
+-- Archivo: nombre_reloj_16_segmentos.vhd
+-- Descripción: Divisor de frecuencia para obtener 1 Hz desde reloj de 50 MHz
+--              Ideal para controlar displays de 16 segmentos con refresco a 1 Hz
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity nombre_reloj_16_segmentos is
+    port ( 
+        clkin  : in  STD_LOGIC;  -- Reloj de 50 MHz (pin 12 de EPM240)
+        clkout : out STD_LOGIC   -- Salida de 1 Hz para temporización
+    );
+end nombre_reloj_16_segmentos;
+
+architecture funcionamiento of nombre_reloj_16_segmentos is
+    signal count : unsigned(24 downto 0) := (others => '0');
+    signal clkint : STD_LOGIC := '0';
+    
+    -- Constante para 50 MHz -> 1 Hz
+    constant MAX_COUNT : unsigned(24 downto 0) := to_unsigned(24999999, 25);
+    
+begin
+    process(clkin)
+    begin
+        if rising_edge(clkin) then
+            if count = MAX_COUNT then
+                count <= (others => '0');
+                clkint <= not clkint;
+            else
+                count <= count + 1;
+            end if;
+        end if;
+    end process;
+    
+    clkout <= clkint;
+    
+end funcionamiento;

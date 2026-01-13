@@ -1,0 +1,32 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity nombre_switch is
+	Port (
+		E3,E2,E1,E0 : in std_logic;
+		salida : out std_logic_vector (15 downto 0)
+		);
+end nombre_switch;
+
+architecture nombre of nombre_switch is
+	signal entrada : std_logic_vector(3 downto 0);
+	
+begin
+	entrada <= E3 & E2 & E1 & E0; --Contatenar entradas --
+	
+	process(entrada)
+	begin
+		case(entrada) is:
+			when "0000" => salida <= "0100100000010011";
+			when "0001" => salida <= "0000000011111111";
+			when others => salida <= "0000000100000000";
+		end case;
+	end process;
+end nombre;
+			
+			
+			
+			
+			
+			
+			

@@ -1,0 +1,11 @@
+Fitter Status : Successful - Mon Jan 12 17:45:40 2026
+Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+Revision Name : nombre_reloj_16_segmentos
+Top-level Entity Name : nombre_reloj_16_segmentos
+Family : MAX II
+Device : EPM240T100C5
+Timing Models : Final
+Total logic elements : 53 / 240 ( 22 % )
+Total pins : 2 / 80 ( 3 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

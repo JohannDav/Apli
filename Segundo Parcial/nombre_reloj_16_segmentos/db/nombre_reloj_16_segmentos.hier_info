@@ -1,0 +1,30 @@
+|nombre_reloj_16_segmentos
+clkin => clkint.CLK
+clkin => count[0].CLK
+clkin => count[1].CLK
+clkin => count[2].CLK
+clkin => count[3].CLK
+clkin => count[4].CLK
+clkin => count[5].CLK
+clkin => count[6].CLK
+clkin => count[7].CLK
+clkin => count[8].CLK
+clkin => count[9].CLK
+clkin => count[10].CLK
+clkin => count[11].CLK
+clkin => count[12].CLK
+clkin => count[13].CLK
+clkin => count[14].CLK
+clkin => count[15].CLK
+clkin => count[16].CLK
+clkin => count[17].CLK
+clkin => count[18].CLK
+clkin => count[19].CLK
+clkin => count[20].CLK
+clkin => count[21].CLK
+clkin => count[22].CLK
+clkin => count[23].CLK
+clkin => count[24].CLK
+clkout << clkint.DB_MAX_OUTPUT_PORT_TYPE
+
+

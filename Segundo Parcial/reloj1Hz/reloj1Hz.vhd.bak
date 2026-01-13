@@ -1,0 +1,34 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity reloj1Hz is
+	port (clkin : in STD_LOGIC; --este es el reloj interno de la tarjeta 
+											--MAX II disponible en pin 12
+			clkout : out STD_LOGIC --
+);
+end reloj1HZ;
+
+architecture funcionamiento of reloj1Hz is
+	signal count: STD_LOGIC_VECTOR ( 24 downto 0 ); --este es el contador de
+													--flancos de la señal interna de reloj
+															--para producir el reloj deseado
+	signal clkint : STD_LOGIC; --señal creada para manipular el reloj deseado 
+										--internamente
+	begin
+		process(clkin)
+			begin
+				if clkin'event and clkin = '1' then --se comprueba si hay
+																--un flanco de subida
+					if count = "1011111010111100001000000" then --se comprueba se
+										 --se ha llegado al conteo de ciclos calculados
+					count <= "0000000000000000000000000";
+					clkint <= not clkint;
+					clkout <= clkint;
+						else
+						count <= count + '1';
+					end if;
+				end if;
+			end process;
+end funcionamiento;

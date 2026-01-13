@@ -1,8 +1,0 @@
-|carro
-PI => AL.IN0
-PD => AL.IN1
-C => AL.IN0
-SW => AL.IN1
-AL <= AL.DB_MAX_OUTPUT_PORT_TYPE
-
-
